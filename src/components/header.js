@@ -38,9 +38,6 @@ const Header = () => {
 										to="/login"
 										className="button"
 									>
-										<span className="icon">
-											<i className="fab fa-twitter"></i>
-										</span>
 										<span>Log In</span>
 									</NavLink>
 								</p>
@@ -50,9 +47,6 @@ const Header = () => {
 										className="button"
 										to="/signup"
 									>
-										<span className="icon">
-											<i className="fas fa-download"></i>
-										</span>
 										<span>Sign Up</span>
 									</NavLink>
 								</p>

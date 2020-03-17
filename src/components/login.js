@@ -3,7 +3,7 @@ import React from "react";
 const Login = () => {
 	return (
 		<>
-			<div className="container width-75">
+			<div className="container width-50">
 
 			<h2 className="title margin-10 text-center">Login</h2>
 				<form>

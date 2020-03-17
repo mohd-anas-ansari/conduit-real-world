@@ -3,7 +3,7 @@ import React from "react";
 const NewArticle = () => {
 	return (
 		<>
-			<div className="container width-75">
+			<div className="container width-70 margin-center">
 				<h2 className="title margin-10 text-center">Create new Article</h2>
 				<form>
 					<input class="input margin-10" type="text" placeholder="Title" />
