@@ -2,6 +2,10 @@
   margin: 10px;
 }
 
+.margin-top-50 {
+  margin-top: 50px;
+}
+
 .flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -14,15 +18,20 @@
           justify-content: space-between;
 }
 
+.space-around {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
 .padding-10 {
   padding: 10px;
 }
 
-.width-75 {
-  width: 75%;
-}
-
 .text-center {
   text-align: center;
+}
+
+.width-70 {
+  width: 70%;
 }
 /*# sourceMappingURL=common.css.map */

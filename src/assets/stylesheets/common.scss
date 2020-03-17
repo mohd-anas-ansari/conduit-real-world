@@ -2,6 +2,9 @@
   margin: 10px;
 }
 
+.margin-top-50 {
+  margin-top: 50px
+}
 .flex {
   display: flex;
 }
@@ -10,14 +13,19 @@
   justify-content: space-between;
 }
 
+.space-around {
+  justify-content: space-around;
+}
+
 .padding-10 {
   padding: 10px;
 }
 
-.width-75 {
-  width: 75%;
-}
 
 .text-center {
   text-align: center;
+}
+
+.width-70 {
+  width: 70%;
 }

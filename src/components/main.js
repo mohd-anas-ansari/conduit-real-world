@@ -26,11 +26,11 @@ class Main extends React.Component {
 		console.log(this);
 		return this.state.articles ? (
 			<>
-				<div className="container width-75">
-					<h1 className="title text-center margin-10">Articles</h1>
-					<ul>
-						{
-							this.state.articles.map((article) => {
+				<div className="container flex space-around">
+					<div className="width-70">
+						<h1 className="title text-center margin-10">Articles</h1>
+						<ul>
+							{this.state.articles.map((article) => {
 								return (
 									<li>
 										{/* <h1 className="title is-2">
@@ -56,7 +56,7 @@ class Main extends React.Component {
 												</p>
 												<p class="card-footer-item">
 													<span>
-													 <Link>Tags</Link>
+														<Link>Tags</Link>
 													</span>
 												</p>
 											</footer>
@@ -64,7 +64,20 @@ class Main extends React.Component {
 									</li>
 								);
 							})}
-					</ul>
+						</ul>
+					</div>
+					<div className="margin-top-50">
+						<div class="tile is-parent">
+							<article class="tile is-child notification is-info">
+								{/* <p class="title">Middle tile</p>
+								<p class="subtitle">With an image</p>
+								<figure class="image is-4by3">
+									<img src="https://bulma.io/images/placeholders/640x480.png" />
+								</figure> */}
+								<ul></ul>
+							</article>
+						</div>
+					</div>
 				</div>
 			</>
 		) : (
