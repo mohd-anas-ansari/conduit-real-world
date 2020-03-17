@@ -45,7 +45,7 @@ class Main extends React.Component {
 											<footer class="card-footer">
 												<p class="card-footer-item">
 													<span>
-														Created By <Link>{article.author.username}</Link>
+														<img src={article.author.image}/> <Link>{article.author.username}</Link>
 													</span>
 												</p>
 												<p class="card-footer-item">
