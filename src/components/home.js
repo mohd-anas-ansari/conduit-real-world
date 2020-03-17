@@ -14,6 +14,7 @@ const Home = () => {
 			</section>
 
 			<Main />
+			
 		</div>
 	);
 };

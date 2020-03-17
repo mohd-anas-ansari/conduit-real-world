@@ -1,0 +1,11 @@
+.profile-image {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+/*# sourceMappingURL=main.css.map */

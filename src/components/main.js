@@ -44,8 +44,12 @@ class Main extends React.Component {
 											</div>
 											<footer class="card-footer">
 												<p class="card-footer-item">
-													<span>
-														<img src={article.author.image}/> <Link>{article.author.username}</Link>
+													<span className='flex'>
+														<img
+															src={article.author.image}
+															className="profile-image"
+														/>
+														<Link>{article.author.username}</Link>
 													</span>
 												</p>
 												<p class="card-footer-item">
@@ -63,10 +67,16 @@ class Main extends React.Component {
 					<div className="margin-top-60 width-30">
 						<div class="tile is-parent">
 							<article class="tile is-child notification is-dark">
-								<ul className='flex'>
+								<ul className="flex">
 									{console.log(this)}
 									{this.state.tags.map((tag) => {
-										return this.state.tags && <li className='margin-10'><button class="button is-small">{tag}</button></li>;
+										return (
+											this.state.tags && (
+												<li className="margin-10">
+													<button class="button is-small">{tag}</button>
+												</li>
+											)
+										);
 									})}
 								</ul>
 							</article>

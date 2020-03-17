@@ -8,7 +8,8 @@ import App from './components/App'
 
 //CSS Bulma
 import 'bulma/css/bulma.css'
-import './assets/stylesheets/common.css'
+import './assets/stylesheets/common/common.css';
+import './assets/stylesheets/main/main.css'
 
 
 //rootElement
