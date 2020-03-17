@@ -1,12 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { BrowserRouter } from 'react-router-dom';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+//App
+import App from './components/App'
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+
+//CSS Bulma
+import 'bulma/css/bulma.css'
+import './assets/stylesheets/common.css'
+
+
+//rootElement
+const rootElement = document.getElementById('root');
+
+//Render
+ReactDOM.render(
+  <BrowserRouter >
+   <App />
+  </BrowserRouter>,
+  rootElement
+)
