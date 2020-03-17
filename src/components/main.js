@@ -17,7 +17,7 @@ class Main extends React.Component {
 		let tagsP = fetch(tags).then((res) => res.json());
 
 		Promise.all([articlesP, tagsP]).then((res) => {
-			this.setState({ articles: res[0].articles, tags: res[1] });
+			this.setState({ articles: res[0].articles, tags: res[1].tags });
 		});
 		console.log(this);
 	}
@@ -33,12 +33,6 @@ class Main extends React.Component {
 							{this.state.articles.map((article) => {
 								return (
 									<li>
-										{/* <h1 className="title is-2">
-										<Link to={`/article/${article.slug}`}>{article.title}</Link>
-									</h1>
-
-									<h3 class="subtitle is-5">{article.description}</h3> */}
-
 										<div class="card margin-10">
 											<div class="card-content">
 												<p class="title">
@@ -56,7 +50,7 @@ class Main extends React.Component {
 												</p>
 												<p class="card-footer-item">
 													<span>
-														<Link>Tags</Link>
+														<Link>{article.createdAt}</Link>
 													</span>
 												</p>
 											</footer>
@@ -66,15 +60,15 @@ class Main extends React.Component {
 							})}
 						</ul>
 					</div>
-					<div className="margin-top-50">
+					<div className="margin-top-60 width-30">
 						<div class="tile is-parent">
-							<article class="tile is-child notification is-info">
-								{/* <p class="title">Middle tile</p>
-								<p class="subtitle">With an image</p>
-								<figure class="image is-4by3">
-									<img src="https://bulma.io/images/placeholders/640x480.png" />
-								</figure> */}
-								<ul></ul>
+							<article class="tile is-child notification is-dark">
+								<ul className='flex'>
+									{console.log(this)}
+									{this.state.tags.map((tag) => {
+										return this.state.tags && <li className='margin-10'><button class="button is-small">{tag}</button></li>;
+									})}
+								</ul>
 							</article>
 						</div>
 					</div>

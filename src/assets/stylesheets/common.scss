@@ -2,11 +2,12 @@
   margin: 10px;
 }
 
-.margin-top-50 {
-  margin-top: 50px
+.margin-top-60 {
+  margin-top: 60px
 }
 .flex {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .space-between {
@@ -28,4 +29,8 @@
 
 .width-70 {
   width: 70%;
+}
+
+.width-30 {
+  width: 30%;
 }
