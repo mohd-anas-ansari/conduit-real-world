@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+# Real World Conduit
+
+>>>>>>> d20b673c0467ae7e0e953fbe85be45ca0c85dfa4
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
