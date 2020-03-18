@@ -10,6 +10,9 @@ import "bulma/css/bulma.css";
 import "./assets/stylesheets/common/common.css";
 import "./assets/stylesheets/main/main.css";
 import './assets/stylesheets/article/article.scss';
+import './assets/stylesheets/profile/profile.scss';
+
+
 
 //rootElement
 const rootElement = document.getElementById("root");
