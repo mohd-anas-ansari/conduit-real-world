@@ -41,13 +41,22 @@ const Header = () => {
 										<span>Log In</span>
 									</NavLink>
 								</p>
-								<p className="control is-vcentered">
+								<p className="control">
 									<NavLink
 										activeClassName="is-primary"
 										className="button"
 										to="/signup"
 									>
 										<span>Sign Up</span>
+									</NavLink>
+								</p>
+								<p className="control">
+									<NavLink
+										activeClassName="is-primary"
+										className="button"
+										to="/profile"
+									>
+										<span>Profile</span>
 									</NavLink>
 								</p>
 							</div>

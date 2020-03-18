@@ -6,7 +6,8 @@ import Home from './home';
 import Header from './header'
 import Signup from './signup.js';
 import Article from './article';
-import NewArticle from './newarticle'
+import NewArticle from './newarticle';
+import Profile from './profile';
 
 
 
@@ -19,6 +20,7 @@ const App = () => {
 			<Route path='/signup' component={Signup} />
 			<Route path='/article/:slug' component={Article} />
 			<Route path='/newarticle' component={NewArticle} />
+			<Route path='/profile' component={Profile} />
 				
 		</>
 	);

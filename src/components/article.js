@@ -22,9 +22,9 @@ class Article extends React.Component {
 			<>
 				<div className="container width-70">
 					{console.log(this.state)}
-					<div class="tile is-parent">
+					<div class="tile is-parent article-height">
 						<article class="tile is-child notification is-dark">
-							<h1 class="title">{this.state.articleInfo.title}</h1>
+							<h1 class="title has-text-centered">{this.state.articleInfo.title}</h1>
 
 							<p class="subtitle">{this.state.articleInfo.description}</p>
 

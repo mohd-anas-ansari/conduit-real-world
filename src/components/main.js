@@ -35,6 +35,7 @@ class Main extends React.Component {
 									<li>
 										<div class="card margin-10">
 											<div class="card-content">
+												<p className='is-size-7 has-text-right'>{article.createdAt.slice(0, 10)}</p>
 												<p class="title">
 													<Link to={`/article/${article.slug}`}>
 														{article.title}
@@ -54,7 +55,7 @@ class Main extends React.Component {
 												</p>
 												<p class="card-footer-item">
 													<span>
-														<Link>{article.createdAt}</Link>
+														<Link>{article.tagList}</Link>
 													</span>
 												</p>
 											</footer>
