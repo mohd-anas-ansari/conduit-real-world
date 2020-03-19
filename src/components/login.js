@@ -1,5 +1,5 @@
 import React from "react";
-import {withRouter} from 'react-router-dom'
+import { withRouter } from "react-router-dom";
 
 const Login = (props) => {
 	let email = React.useRef(null);
@@ -7,7 +7,7 @@ const Login = (props) => {
 	console.log("Email", email);
 
 	function handleLogin(e) {
-		e.preventDefault()
+		e.preventDefault();
 		fetch("https://conduit.productionready.io/api/users/login ", {
 			method: "POST",
 			headers: {
@@ -21,13 +21,16 @@ const Login = (props) => {
 			})
 		})
 			.then((res) => res.json())
-			.then((user) => {
-				if (user.errors) {
+			.then((userInfo) => {
+				if (userInfo.errors) {
+					console.log(userInfo, 'in Error');
 					localStorage.setItem("isLoggedIn", false);
 				} else {
 					localStorage.setItem("isLoggedIn", true);
-					props.history.push("/");
 					props.updateIsLoggedIn(true);
+					props.history.push("/");
+					localStorage.setItem('conduit-token', userInfo.user.token)
+					console.log(userInfo);
 				}
 			})
 			.catch((err) => {
@@ -54,7 +57,12 @@ const Login = (props) => {
 						ref={password}
 					/>
 
-					<button class="button is-success margin-10" onClick={(e) => { handleLogin(e) }}>
+					<button
+						class="button is-success margin-10"
+						onClick={(e) => {
+							handleLogin(e);
+						}}
+					>
 						Log In
 					</button>
 				</form>

@@ -1,37 +1,84 @@
 import React from "react";
-import { Route } from 'react-router-dom';
+import { Route, Switch } from "react-router-dom";
 
-import Login from './login';
-import Home from './home';
-import Header from './header'
-import Signup from './signup.js';
-import Article from './article';
-import NewArticle from './newarticle';
-import Profile from './profile';
+import Login from "./login";
+import Home from "./home";
+import Header from "./header";
+import Signup from "./signup.js";
+import Article from "./article";
+import NewArticle from "./newarticle";
+import Profile from "./profile";
+
+function Auth() {
+	return (
+		<Switch>
+			<Route exact path="/" component={Home} />
+			<Route path="/newarticle" component={NewArticle} />
+			<Route path="/profile" component={Profile} />
+		</Switch>
+	);
+}
+
+function NoAuth(thisProps) {
+	return (
+		<Switch>
+			<Route exact path="/" component={Home} />
+			<Route
+				path="/login"
+				render={() => (
+					<Login updateIsLoggedIn={thisProps.updateIsLoggedIn} {...thisProps} />
+				)}
+			/>
+			<Route path="/signup" component={Signup} />
+			<Route path="/article/:slug" component={Article} />
+			<Route path="*" render={() => <h1>404 Page Not Found</h1>} />
+		</Switch>
+	);
+}
 
 class App extends React.Component {
-	state = { 
-		isLoggedIn: false,
-	}
+	state = {
+		isLoggedIn: false
+	};
 
 	updateIsLoggedIn = (value) => {
-		this.setState({isLoggedIn: value})
+		console.log("Inside updateIsLoggedIn", value);
+		this.setState({ isLoggedIn: value });
+	};
+
+	componentDidMount() {
+		console.log("cdm", this);
+		if (localStorage["conduit-token"]) {
+			fetch("https://conduit.productionready.io/api/user", {
+				headers: {
+					authorization: `Token ${localStorage["conduit-token"]}`
+				}
+			})
+				.then((res) => res.json())
+				.then((user) => {
+					console.log(user, "in app");
+
+					this.setState({ isLoggedIn: true });
+				})
+				.catch((err) => {
+					this.setState({ isLoggedIn: false });
+				});
+		}
 	}
-	render() { 
-		return ( 
+	render() {
+		console.log("Inside Render", this.state.isLoggedIn);
+
+		return (
 			<>
-				<Header isLoggedIn={this.state.isLoggedIn}/>
-			<Route exact path='/' component={Home}/>
-			<Route path='/login' render={() => <Login updateIsLoggedIn={this.updateIsLoggedIn} /> } />
-			<Route path='/signup' component={Signup} />
-			<Route path='/article/:slug' component={Article} />
-			<Route path='/newarticle' component={NewArticle} />
-			<Route path='/profile' component={Profile} />
-				
-		</>
-		 );
+				<Header isLoggedIn={this.state.isLoggedIn} />
+				{this.state.isLoggedIn ? (
+					<Auth />
+				) : (
+					<NoAuth updateIsLoggedIn={this.updateIsLoggedIn} />
+				)}
+			</>
+		);
 	}
 }
- 
-export default App;
 
+export default App;
