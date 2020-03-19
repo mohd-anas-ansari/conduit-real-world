@@ -12,6 +12,8 @@ class Article extends React.Component {
 		fetch(article)
 			.then((res) => res.json())
 			.then(({ article }) => {
+				console.log(article);
+				
 				this.setState({ articleInfo: article });
 			});
 	}
@@ -32,7 +34,7 @@ class Article extends React.Component {
 								By: {this.state.articleInfo.author.username}
 							</p>
 							<hr />
-							<div class="content">{this.state.articleInfo.description}</div>
+							<div class="content">{this.state.articleInfo.body}</div>
 						</article>
 					</div>
 				</div>

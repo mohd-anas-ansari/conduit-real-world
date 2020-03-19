@@ -23,7 +23,7 @@ const Header = (props) => {
 					<div className="navbar-end">
 						<div className="navbar-item">
 							<div className="field is-grouped">
-								{	props.isLoggedIn ? (
+								{props.isLoggedIn ? (
 									<>
 										<p className="control is-vcentered">
 											<NavLink
@@ -41,6 +41,15 @@ const Header = (props) => {
 												to="/profile"
 											>
 												<span>Profile</span>
+											</NavLink>
+										</p>
+										<p className="control">
+											<NavLink
+												activeClassName="is-primary"
+												className="button"
+												to="/setting"
+											>
+												<span>Settings</span>
 											</NavLink>
 										</p>
 									</>

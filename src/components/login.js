@@ -8,7 +8,7 @@ const Login = (props) => {
 
 	function handleLogin(e) {
 		e.preventDefault();
-		fetch("https://conduit.productionready.io/api/users/login ", {
+		fetch("https://conduit.productionready.io/api/users/login", {
 			method: "POST",
 			headers: {
 				"Content-type": "application/json"

@@ -13,6 +13,7 @@ function Auth() {
 	return (
 		<Switch>
 			<Route exact path="/" component={Home} />
+			<Route path="/article/:slug" component={Article} />
 			<Route path="/newarticle" component={NewArticle} />
 			<Route path="/profile" component={Profile} />
 		</Switch>
