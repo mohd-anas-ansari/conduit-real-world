@@ -1,4 +1,5 @@
 import React from "react";
+import {withRouter} from 'react-router-dom'
 
 const Login = (props) => {
 	let email = React.useRef(null);
@@ -26,6 +27,7 @@ const Login = (props) => {
 				} else {
 					localStorage.setItem("isLoggedIn", true);
 					props.history.push("/");
+					props.updateIsLoggedIn(true);
 				}
 			})
 			.catch((err) => {
@@ -61,4 +63,4 @@ const Login = (props) => {
 	);
 };
 
-export default Login;
+export default withRouter(Login);

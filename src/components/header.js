@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
-const Header = () => {
+const Header = (props) => {
 	return (
 		<>
 			<nav className="navbar is-transparent is-dark is-vcentered">
@@ -23,42 +23,50 @@ const Header = () => {
 					<div className="navbar-end">
 						<div className="navbar-item">
 							<div className="field is-grouped">
-								<p className="control is-vcentered">
-									<NavLink
-										activeClassName="is-primary"
-										className="button"
-										to="/newarticle"
-									>
-										<span>New Article</span>
-									</NavLink>
-								</p>
-								<p className="control">
-									<NavLink
-										activeClassName="is-primary"
-										to="/login"
-										className="button"
-									>
-										<span>Log In</span>
-									</NavLink>
-								</p>
-								<p className="control">
-									<NavLink
-										activeClassName="is-primary"
-										className="button"
-										to="/signup"
-									>
-										<span>Sign Up</span>
-									</NavLink>
-								</p>
-								<p className="control">
-									<NavLink
-										activeClassName="is-primary"
-										className="button"
-										to="/profile"
-									>
-										<span>Profile</span>
-									</NavLink>
-								</p>
+								{	props.isLoggedIn ? (
+									<>
+										<p className="control is-vcentered">
+											<NavLink
+												activeClassName="is-primary"
+												className="button"
+												to="/newarticle"
+											>
+												<span>New Article</span>
+											</NavLink>
+										</p>
+										<p className="control">
+											<NavLink
+												activeClassName="is-primary"
+												className="button"
+												to="/profile"
+											>
+												<span>Profile</span>
+											</NavLink>
+										</p>
+									</>
+								) : (
+									<>
+										<p className="control">
+											<NavLink
+												activeClassName="is-primary"
+												to="/login"
+												className="button"
+											>
+												<span>Log In</span>
+											</NavLink>
+										</p>
+
+										<p className="control">
+											<NavLink
+												activeClassName="is-primary"
+												className="button"
+												to="/signup"
+											>
+												<span>Sign Up</span>
+											</NavLink>
+										</p>
+									</>
+								)}
 							</div>
 						</div>
 					</div>
@@ -69,7 +77,6 @@ const Header = () => {
 };
 
 export default Header;
-
 
 //LogIn Working
 //SignUp Working
