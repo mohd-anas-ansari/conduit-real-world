@@ -17,6 +17,7 @@ class Main extends React.Component {
 		let tagsP = fetch(tags).then((res) => res.json());
 
 		Promise.all([articlesP, tagsP]).then((res) => {
+			console.log(this)
 			this.setState({ articles: res[0].articles, tags: res[1].tags });
 		});
 		console.log(this);
@@ -50,7 +51,7 @@ class Main extends React.Component {
 															src={article.author.image}
 															className="profile-image"
 														/>
-														<Link>{article.author.username}</Link>
+														<Link to={`/profile/${article.author.username}`}>{article.author.username}</Link>
 													</span>
 												</p>
 												<p class="card-footer-item">

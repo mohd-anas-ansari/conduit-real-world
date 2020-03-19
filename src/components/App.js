@@ -15,7 +15,7 @@ function Auth() {
 			<Route exact path="/" component={Home} />
 			<Route path="/article/:slug" component={Article} />
 			<Route path="/newarticle" component={NewArticle} />
-			<Route path="/profile" component={Profile} />
+			<Route path="/profile/:handle" component={Profile} />
 		</Switch>
 	);
 }
@@ -32,6 +32,7 @@ function NoAuth(thisProps) {
 			/>
 			<Route path="/signup" component={Signup} />
 			<Route path="/article/:slug" component={Article} />
+			<Route path="/profile/:handle" component={Profile} />
 			<Route path="*" render={() => <h1>404 Page Not Found</h1>} />
 		</Switch>
 	);
