@@ -8,14 +8,22 @@ import Signup from "./signup.js";
 import Article from "./article";
 import NewArticle from "./newarticle";
 import Profile from "./profile";
+import Logout from "./logout";
 
-function Auth() {
+function Auth(props) {
 	return (
 		<Switch>
 			<Route exact path="/" component={Home} />
 			<Route path="/article/:slug" component={Article} />
 			<Route path="/newarticle" component={NewArticle} />
 			<Route path="/profile/:handle" component={Profile} />
+			<Route
+				exact
+				path="/logout"
+				render={(properties) => (
+					<Logout updateIsLoggedIn={props.updateIsLoggedIn} {...properties} />
+				)}
+			/>
 		</Switch>
 	);
 }
@@ -72,9 +80,9 @@ class App extends React.Component {
 
 		return (
 			<>
-				<Header isLoggedIn={this.state.isLoggedIn} />
+				<Header isLoggedIn={this.state.isLoggedIn}/>
 				{this.state.isLoggedIn ? (
-					<Auth />
+					<Auth updateIsLoggedIn={this.updateIsLoggedIn}/>
 				) : (
 					<NoAuth updateIsLoggedIn={this.updateIsLoggedIn} />
 				)}

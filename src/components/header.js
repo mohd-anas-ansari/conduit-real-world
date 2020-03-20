@@ -52,6 +52,16 @@ const Header = (props) => {
 												<span>Settings</span>
 											</NavLink>
 										</p>
+
+										<p className="control">
+											<NavLink
+												activeClassName="is-primary"
+												className="button"
+												to="/logout"
+											>
+												<span>Logout</span>
+											</NavLink>
+										</p>
 									</>
 								) : (
 									<>

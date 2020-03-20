@@ -1,7 +1,8 @@
 import React from "react";
 
 const NewArticle = (props) => {
-
+	console.log(props);
+	
 	let title = React.useRef(null);
 	let description = React.useRef(null);
 	let articleBody = React.useRef(null);
