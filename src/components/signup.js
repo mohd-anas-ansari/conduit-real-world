@@ -1,6 +1,6 @@
 import React from "react";
 
-const Signup = () => {
+const Signup = (props) => {
 	let username = React.useRef(null);
 	let password = React.useRef(null);
 	let email = React.useRef(null);
@@ -8,6 +8,8 @@ const Signup = () => {
 	function handleSignup(e) {
 		e.preventDefault();
 		console.log(email.current.value);
+		console.log(props);
+		
 		fetch("https://conduit.productionready.io/api/users", {
 			method: "POST",
 			headers: {
@@ -22,7 +24,10 @@ const Signup = () => {
 			})
 		})
 			.then((res) => res.json())
-			.then((userData) => console.log(userData));
+			.then((userData) => {
+				console.log(userData)
+				props.history.push("/login");
+			 });
 	}
 	return (
 		<>

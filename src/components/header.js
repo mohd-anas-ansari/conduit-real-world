@@ -2,6 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const Header = (props) => {
+	console.log(localStorage, 'Header')
 	return (
 		<>
 			<nav className="navbar is-transparent is-dark is-vcentered">
