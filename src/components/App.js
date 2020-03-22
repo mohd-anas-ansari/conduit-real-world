@@ -11,6 +11,8 @@ import Profile from "./profile";
 import Logout from "./logout";
 
 function Auth(props) {
+	console.log(props, "Inside App");
+
 	return (
 		<Switch>
 			<Route exact path="/" component={Home} />
@@ -48,14 +50,14 @@ function NoAuth(thisProps) {
 
 class App extends React.Component {
 	state = {
-		isLoggedIn: false
+		isLoggedIn: false,
+		user: null
 	};
 
 	updateIsLoggedIn = (value) => {
 		console.log("Inside updateIsLoggedIn", value);
 		this.setState({ isLoggedIn: value });
 	};
-
 	componentDidMount() {
 		console.log("cdm", this);
 		if (localStorage["conduit-token"]) {
@@ -66,9 +68,11 @@ class App extends React.Component {
 			})
 				.then((res) => res.json())
 				.then((user) => {
-					console.log(user, "in app");
+					console.log(user, "user in app");
+					console.log(this.state, "Before SetState");
 
-					this.setState({ isLoggedIn: true });
+					this.setState({ isLoggedIn: true, user: user.user });
+					console.log(this.state, "State after set");
 				})
 				.catch((err) => {
 					this.setState({ isLoggedIn: false });
@@ -80,9 +84,12 @@ class App extends React.Component {
 
 		return (
 			<>
-				<Header isLoggedIn={this.state.isLoggedIn}/>
+				<Header
+					isLoggedIn={this.state.isLoggedIn}
+					user={this.state.user && this.state.user}
+				/>
 				{this.state.isLoggedIn ? (
-					<Auth updateIsLoggedIn={this.updateIsLoggedIn}/>
+					<Auth updateIsLoggedIn={this.updateIsLoggedIn} />
 				) : (
 					<NoAuth updateIsLoggedIn={this.updateIsLoggedIn} />
 				)}

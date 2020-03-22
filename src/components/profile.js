@@ -9,19 +9,17 @@ class Profile extends React.Component {
 
 	componentDidMount() {
 		const { handle } = this.props.match.params;
-		console.log(handle);
+		console.log(handle, 'V2 Checking handle of logged in user: WORKING');
 		const user = `https://conduit.productionready.io/api/profiles/${handle}`;
 		const userArticles = `https://conduit.productionready.io/api/articles?author=${handle}&limit=5&offset=0`;
-		console.log(this, "After Fetch Assign");
-		console.log(user, "User After Fetch Assign");
-		console.log(userArticles, "User Article After Fetch Assign");
+		console.log(this, "V2 After Fetch Assign: GETTING USER");;
 
 		const userP = fetch(user).then((res) => res.json());
 		const userArticlesP = fetch(userArticles).then((res) => res.json());
 
 		Promise.all([userP, userArticlesP]).then((res) => {
-			console.log(res[0].profile, "Res Profile");
-			console.log(res[1].articles, "Res Articles");
+			console.log(res[0].profile, "V2 Res Profile");
+			console.log(res[1].articles, "V2 Res Articles");
 			console.log(this, "This inside Promise All");
 			this.setState({ user: res[0].profile, userArticles: res[1].articles });
 		});

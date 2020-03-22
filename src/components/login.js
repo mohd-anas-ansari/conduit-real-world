@@ -23,9 +23,11 @@ const Login = (props) => {
 			.then((res) => res.json())
 			.then((userInfo) => {
 				if (userInfo.errors) {
-					console.log(userInfo, 'in Error');
 					localStorage.setItem("isLoggedIn", false);
+					// localStorage.setItem("user", );
+
 				} else {
+					console.log(userInfo, 'userInfo');
 					localStorage.setItem("isLoggedIn", true);
 					props.updateIsLoggedIn(true);
 					props.history.push("/");

@@ -2,7 +2,8 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const Header = (props) => {
-	console.log(localStorage, 'Header')
+	console.log(props, 'Header Props');
+	
 	return (
 		<>
 			<nav className="navbar is-transparent is-dark is-vcentered">
@@ -39,7 +40,7 @@ const Header = (props) => {
 											<NavLink
 												activeClassName="is-primary"
 												className="button"
-												to="/profile"
+												to={`/profile/${props.user && props.user.username }`}
 											>
 												<span>Profile</span>
 											</NavLink>
