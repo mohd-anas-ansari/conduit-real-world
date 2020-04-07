@@ -9,6 +9,7 @@ import Article from "./article";
 import NewArticle from "./newarticle";
 import Profile from "./profile";
 import Logout from "./logout";
+import Settings from './settings'
 
 function Auth(props) {
 	console.log(props, "Inside App");
@@ -26,6 +27,7 @@ function Auth(props) {
 					<Logout updateIsLoggedIn={props.updateIsLoggedIn} {...properties} />
 				)}
 			/>
+			<Route path="/settings" component={Settings} />
 		</Switch>
 	);
 }

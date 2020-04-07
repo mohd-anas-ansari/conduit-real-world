@@ -49,7 +49,7 @@ const Header = (props) => {
 											<NavLink
 												activeClassName="is-primary"
 												className="button"
-												to="/setting"
+												to="/settings"
 											>
 												<span>Settings</span>
 											</NavLink>
